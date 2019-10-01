@@ -24,7 +24,7 @@ DEBUG = False
 ALLOWED_HOSTS = ['clicpust.cseai.com', 'www.clicpust.cseai.com']
 # ALLOWED_HOSTS = []
 
-AUTH_USER_MODEL = 'accounts.User'
+AUTH_USER_MODEL = 'account.User'
 
 # Application definition
 

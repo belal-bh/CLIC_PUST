@@ -10,6 +10,14 @@ User Account App of CLICPUST Project
 
 Therefore we want to remove `username` field from `ER-Diagram`.
 
+## Migrations
+
+### How to Reset Migrations
+
+Sometimes we need to reset database `migration`.
+
+> [How to Reset Migrations](https://simpleisbetterthancomplex.com/tutorial/2016/07/26/how-to-reset-migrations.html)
+
 ## Regular Expressions
 
 ```

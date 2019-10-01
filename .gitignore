@@ -9,6 +9,7 @@ media_cdn/*
 offlinesrc/*
 mtest/*
 static_cdn/*
+src/account/draft/*
 # src/static/*
 template/*
 

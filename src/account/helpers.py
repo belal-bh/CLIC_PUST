@@ -52,4 +52,4 @@ class UploadTo:
     # For more, see https://docs.djangoproject.com/en/2.0/topics/migrations/#migration-serializing
 
     def deconstruct(self):
-        return ('accounts.helpers.UploadTo', [self.folder_name], {})
+        return ('account.helpers.UploadTo', [self.folder_name], {})

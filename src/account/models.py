@@ -157,15 +157,13 @@ class User(AbstractBaseUser):
             )],
         unique=True
     )
-    no_borrowed_books = models.IntegerField(
+    no_borrowed_books = models.PositiveSmallIntegerField(
         default=0,
-        max_length=15,
         null=True,
         blank=True
     )
-    no_borrowed_resources = models.IntegerField(
+    no_borrowed_resources = models.PositiveSmallIntegerField(
         default=0,
-        max_length=15,
         null=True,
         blank=True
     )

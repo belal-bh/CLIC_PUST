@@ -18,7 +18,7 @@ LIBRARY_ID_REGEX = '^[a-zA-Z0-9.+-]+$'
 
 
 class UserManager(BaseUserManager):
-    def create_user(self, library_id, email, password=None):
+    def create_user(self, library_id, email, contact_mobile, password=None):
         """
         Creates and saves a User with the given email and password.
         """
@@ -28,13 +28,14 @@ class UserManager(BaseUserManager):
         user = self.model(
             library_id=library_id,
             email=self.normalize_email(email),
+            contact_mobile=contact_mobile
         )
 
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_staffuser(self, library_id, email, password):
+    def create_staffuser(self, library_id, email, contact_mobile, password):
         """
         Creates and saves a staff user with the given email and password.
         """
@@ -42,12 +43,13 @@ class UserManager(BaseUserManager):
             library_id,
             email,
             password=password,
+            contact_mobile=contact_mobile
         )
         user.staff = True
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, library_id, email, password):
+    def create_superuser(self, library_id, email, contact_mobile, password):
         """
         Creates and saves a superuser with the given email and password.
         """
@@ -55,6 +57,7 @@ class UserManager(BaseUserManager):
             library_id,
             email,
             password=password,
+            contact_mobile=contact_mobile
         )
         user.admin = True
         user.staff = True
@@ -72,10 +75,10 @@ class User(AbstractBaseUser):
         unique=True,
     )
 
-    name = models.CharField(max_length=40, blank=True)
+    name = models.CharField(max_length=40, null=True, blank=True)
 
-    father_name = models.CharField(max_length=40, blank=True)
-    mother_name = models.CharField(max_length=40, blank=True)
+    father_name = models.CharField(max_length=40, null=True, blank=True)
+    mother_name = models.CharField(max_length=40, null=True, blank=True)
 
     MALE = 'm'
     FEMALE = 'f'
@@ -167,7 +170,8 @@ class User(AbstractBaseUser):
         null=True,
         blank=True
     )
-    validity = models.DateTimeField(auto_now=False, auto_now_add=False)
+    validity = models.DateTimeField(
+        auto_now=False, auto_now_add=True)  # need customization
 
     active = models.BooleanField(default=True)
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
@@ -179,7 +183,7 @@ class User(AbstractBaseUser):
 
     USERNAME_FIELD = 'email'
     # Email & Password are required by default.
-    REQUIRED_FIELDS = ['library_id']
+    REQUIRED_FIELDS = ['library_id', 'contact_mobile']
 
     objects = UserManager()
 

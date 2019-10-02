@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     # local apps
     'account',
     'academic',
+    'member',
 ]
 
 # added by belal from trdjango19

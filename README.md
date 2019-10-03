@@ -1,5 +1,11 @@
 # Central Library and Information Center of PUST
 
+## WARNING!!!
+
+Warning should be considered and should be made resonable decision.
+
+1. In _academic_ app model's has `ForeignKey(settings.AUTH_USER_MODEL)`. But it should (may be) be `OneToOneField(settings.AUTH_USER_MODEL)`.
+
 ## Implementation Workflow
 
 It is the step by step implementation activity.
@@ -67,4 +73,15 @@ Then create various model-class and make migration.
 ```
     python manage.py makemigrations member
     python manage.py migrate member
+```
+
+6. ## Create `resource` App
+   There are money type of resource, like book, digital document, publication etc.
+   We want create two model-class.
+
+- book
+- resource
+
+```
+    python manage.py startapp resource
 ```

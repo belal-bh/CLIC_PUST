@@ -79,9 +79,17 @@ Then create various model-class and make migration.
    There are money type of resource, like book, digital document, publication etc.
    We want create two model-class.
 
-- book
-- resource
+- Author
+- Book
+- Resource
 
 ```
     python manage.py startapp resource
+```
+
+Then create model-class and migrate
+
+```
+    python manage.py makemigration resource
+    python manage.py migrate resource
 ```

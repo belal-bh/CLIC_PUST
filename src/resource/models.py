@@ -25,7 +25,7 @@ class Author(models.Model):
     )
     nationality = models.CharField(max_length=20, null=True, blank=True)
     bio = models.TextField(null=True, blank=True)
-    weblinks = models.CharField(null=True, blank=True)
+    weblinks = ArrayField(models.CharField(max_length=120), blank=True)
     email = models.EmailField(
         verbose_name='email address',
         max_length=255,
@@ -53,7 +53,7 @@ class Book(models.Model):
     publication_date = models.DateField(null=True, blank=True)
     last_revision_date = models.DateField(null=True, blank=True)
     mrp = models.PositiveIntegerField(null=True, blank=True)
-    barcode = models.CharField(null=True, blank=True)
+    barcode = models.CharField(max_length=255, null=True, blank=True)
     image = models.ImageField(
         default='resource/book/image/default.png',
         upload_to=UploadTo('image', plus_id=True),
@@ -64,7 +64,7 @@ class Book(models.Model):
     )
     height_field = models.IntegerField(default=0, null=True)
     width_field = models.IntegerField(default=0, null=True)
-    departments = models.ManyToManyField(Department, null=True, blank=True)
+    departments = models.ManyToManyField(Department)
     tags = ArrayField(models.CharField(max_length=50), blank=True)
     added_by = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, blank=True)
@@ -98,7 +98,7 @@ class Resource(models.Model):
     copy_number = models.CharField(max_length=20)  # need customization
     description = models.TextField(null=True, blank=True)
     mrp = models.PositiveIntegerField(null=True, blank=True)
-    barcode = models.CharField(null=True, blank=True)
+    barcode = models.CharField(max_length=255, null=True, blank=True)
     image = models.ImageField(
         default='resource/resource/image/default.png',
         upload_to=UploadTo('image', plus_id=True),
@@ -109,7 +109,7 @@ class Resource(models.Model):
     )
     height_field = models.IntegerField(default=0, null=True)
     width_field = models.IntegerField(default=0, null=True)
-    departments = models.ManyToManyField(Department, null=True, blank=True)
+    departments = models.ManyToManyField(Department)
     tags = ArrayField(models.CharField(max_length=50), blank=True)
     added_by = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, blank=True)

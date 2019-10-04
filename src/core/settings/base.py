@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'academic',
     'member',
     'resource',
+    'transaction',
 ]
 
 # added by belal from trdjango19

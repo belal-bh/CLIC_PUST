@@ -109,3 +109,10 @@ It is the step by step implementation activity.
    ```
        python manage.py startapp transaction
    ```
+
+   Then make migrations for `transaction`
+
+   ```
+       python manage.py makemigrations transaction
+       python manage.py migrate transaction
+   ```

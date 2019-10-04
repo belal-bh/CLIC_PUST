@@ -12,7 +12,7 @@ class TrxBook(models.Model):
     return_date = models.DateTimeField(auto_now=False, auto_now_add=False)
     comment = models.CharField(max_length=255, null=True, blank=True)
     user = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
+        settings.AUTH_USER_MODEL, on_delete=models.PROTECT, related_name="user_borrower")
     book = models.ForeignKey(
         Book, on_delete=models.PROTECT)
     issued_by = models.ForeignKey(
@@ -29,7 +29,7 @@ class TrxResource(models.Model):
     return_date = models.DateTimeField(auto_now=False, auto_now_add=False)
     comment = models.CharField(max_length=255, null=True, blank=True)
     user = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
+        settings.AUTH_USER_MODEL, on_delete=models.PROTECT, related_name="user_borrower")
     resource = models.ForeignKey(
         Resource, on_delete=models.PROTECT)
     issued_by = models.ForeignKey(

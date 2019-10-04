@@ -16,7 +16,7 @@ class TrxBook(models.Model):
     book = models.ForeignKey(
         Book, on_delete=models.PROTECT)
     issued_by = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, blank=True)
+        settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, related_name="user_issued_by", null=True, blank=True)
     status = models.CharField(max_length=15, null=True, blank=True)
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
@@ -33,7 +33,7 @@ class TrxResource(models.Model):
     resource = models.ForeignKey(
         Resource, on_delete=models.PROTECT)
     issued_by = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, blank=True)
+        settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, related_name="user_issued_by", null=True, blank=True)
     status = models.CharField(max_length=15, null=True, blank=True)
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)

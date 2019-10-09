@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'member',
     'resource',
     'transaction',
+    'service',
 ]
 
 # added by belal from trdjango19

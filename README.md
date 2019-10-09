@@ -116,3 +116,17 @@ It is the step by step implementation activity.
        python manage.py makemigrations transaction
        python manage.py migrate transaction
    ```
+
+8. ## Create `service` App
+
+   In `service` app can have many type of model-class. Currently have:
+
+   - Request
+   - Report
+   - Notice
+
+   Firstly create `service` app and then add model-class.
+
+   ```
+       python manage.py startapp service
+   ```

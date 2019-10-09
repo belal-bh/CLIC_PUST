@@ -130,3 +130,10 @@ It is the step by step implementation activity.
    ```
        python manage.py startapp service
    ```
+
+   Then make a migration:
+
+   ```
+       python manage.py makemigrations service
+       python manage.py migrate service
+   ```

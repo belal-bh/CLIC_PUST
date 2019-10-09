@@ -108,7 +108,7 @@ class Notice(models.Model):
     )
     send_from = models.CharField(max_length=255, null=True, blank=True)
     send_to = models.ManyToManyField(
-        settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, related_name="service_user_send_to", null=True, blank=True)
+        settings.AUTH_USER_MODEL, related_name="service_user_send_to")
     draft = models.BooleanField(default=False)
     published = models.DateTimeField(auto_now=False, auto_now_add=False)
     posted_by = models.ForeignKey(

@@ -195,3 +195,22 @@ It is the step by step implementation activity.
         python manage.py makemigrations comment
         python manage.py migrate comment
     ```
+
+12. ## Create `messenger` App
+
+    In this `messenger` App currently have one model-class:
+
+    - Message
+
+    Firstly create `messenger` app and then add model-class.
+
+    ```
+        python manage.py startapp messenger
+    ```
+
+    Then make a migration:
+
+    ```
+        python manage.py makemigrations messenger
+        python manage.py migrate messenger
+    ```

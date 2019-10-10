@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'amtd',
     'post',
     'comment',
+    'messenger',
 ]
 
 # added by belal from trdjango19

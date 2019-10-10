@@ -138,7 +138,7 @@ It is the step by step implementation activity.
        python manage.py migrate service
    ```
 
-9. ## Create `amtd`
+9. ## Create `amtd` App
 
    `Activity Monitoring and Threat Detection` ( **AMTD** ) is for monitoring all transaction and user activity and threat dectection.
    In this `amtd` App currently have one model-class:
@@ -158,7 +158,7 @@ It is the step by step implementation activity.
        python manage.py migrate amtd
    ```
 
-10. ## Create `post`
+10. ## Create `post` App
 
     In this `post` App currently have one model-class:
 
@@ -175,4 +175,23 @@ It is the step by step implementation activity.
     ```
         python manage.py makemigrations post
         python manage.py migrate post
+    ```
+
+11. ## Create `comment` App
+
+    In this `comment` App currently have one model-class:
+
+    - Comment
+
+    Firstly create `comment` app and then add model-class.
+
+    ```
+        python manage.py startapp comment
+    ```
+
+    Then make a migration:
+
+    ```
+        python manage.py makemigrations comment
+        python manage.py migrate comment
     ```

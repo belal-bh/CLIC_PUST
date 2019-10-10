@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'service',
     'amtd',
     'post',
+    'comment',
 ]
 
 # added by belal from trdjango19

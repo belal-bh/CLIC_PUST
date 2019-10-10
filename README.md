@@ -150,3 +150,29 @@ It is the step by step implementation activity.
    ```
        python manage.py startapp amtd
    ```
+
+   Then make a migration:
+
+   ```
+       python manage.py makemigrations amtd
+       python manage.py migrate amtd
+   ```
+
+10. ## Create `post`
+
+    In this `post` App currently have one model-class:
+
+    - Post
+
+    Firstly create `post` app and then add model-class.
+
+    ```
+        python manage.py startapp post
+    ```
+
+    Then make a migration:
+
+    ```
+        python manage.py makemigrations post
+        python manage.py migrate post
+    ```

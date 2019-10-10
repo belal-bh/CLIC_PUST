@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'transaction',
     'service',
     'amtd',
+    'post',
 ]
 
 # added by belal from trdjango19

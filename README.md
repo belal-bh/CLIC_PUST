@@ -214,3 +214,36 @@ It is the step by step implementation activity.
         python manage.py makemigrations messenger
         python manage.py migrate messenger
     ```
+
+13. ## Install `django-notifications-hq` (`notifications`) App
+
+    [django-notifications-hq](https://pypi.org/project/django-notifications-hq/) is a GitHub notification alike app for Django.
+
+    Installation is easy using `pip` and will install all required libraries.
+
+    ```
+        $ pip install django-notifications-hq
+    ```
+
+    The app should go somewhere after all the apps that are going to be generating notifications like `django.contrib.auth`
+
+    ```
+        INSTALLED_APPS = (
+            'django.contrib.auth',
+            ...
+            'notifications',
+            ...
+        )
+    ```
+
+    Add the notifications urls to your urlconf:
+
+    ```
+        import notifications.urls
+
+        urlpatterns = [
+            ...
+            path('inbox/notifications/', include(notifications.urls, namespace='notifications')),
+            ...
+        ]
+    ```

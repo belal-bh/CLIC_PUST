@@ -10,155 +10,155 @@ Warning should be considered and should be made resonable decision.
 
 It is the step by step implementation activity.
 
-1. ### Create Django Project
+### 1. Create Django Project
 
-   ```
-       django-admin startproject core
-   ```
+    ```
+        django-admin startproject core
+    ```
 
-2. ### Create `account` App
+### 2. Create `account` App
 
-   ```
-       python manage.py startapp account
-   ```
+    ```
+        python manage.py startapp account
+    ```
 
-3. ### Make initial migration
+### 3. Make initial migration
 
-   ```
-       python manage.py makemigrations
-       python manage.py migrate
-   ```
+    ```
+        python manage.py makemigrations
+        python manage.py migrate
+    ```
 
-4. ### Create `academic` App
+### 4. Create `academic` App
 
-   In _academic_ app several model-class can have, i.e. _department_, _faculty_, _program_, _institute_ etc.
+    In _academic_ app several model-class can have, i.e. _department_, _faculty_, _program_, _institute_ etc.
 
-   We want to create three model-class in this _academic_ app:
+    We want to create three model-class in this _academic_ app:
 
-   1. `faculty` : It is the university faculty.
-   2. `department` : It is the university department.
-   3. `program` : It is the university academic program.
+    1.  `faculty` : It is the university faculty.
+    2.  `department` : It is the university department.
+    3.  `program` : It is the university academic program.
 
-   First create _academic_ app
+    First create _academic_ app
 
-   ```
-       python manage.py startapp academic
-   ```
+    ```
+        python manage.py startapp academic
+    ```
 
-   Then create three models and make a migration on _academic_ app
+    Then create three models and make a migration on _academic_ app
 
-   ```
-       python manage.py makemigrations academic
-       python manage.py migrate academic
-   ```
+    ```
+        python manage.py makemigrations academic
+        python manage.py migrate academic
+    ```
 
-5. ### Create `member` app
+### 5. Create `member` app
 
-   There are six type of member in CLIC and each member type is a model-class in `member` app.
-   These six member types are:
+    There are six type of member in CLIC and each member type is a model-class in `member` app.
+    These six member types are:
 
-   - Student
-   - Teacher
-   - Officer
-   - Staff
-   - Othermember
-   - Librarian
+    - Student
+    - Teacher
+    - Officer
+    - Staff
+    - Othermember
+    - Librarian
 
-   First create `member` app:
+    First create `member` app:
 
-   ```
-       python manage.py startapp member
-   ```
+    ```
+        python manage.py startapp member
+    ```
 
-   Then create various model-class and make migration.
+    Then create various model-class and make migration.
 
-   ```
-       python manage.py makemigrations member
-       python manage.py migrate member
-   ```
+    ```
+        python manage.py makemigrations member
+        python manage.py migrate member
+    ```
 
-6. ## Create `resource` App
+### 6. Create `resource` App
 
-   There are money type of resource, like book, digital document, publication etc.
-   We want create two model-class.
+    There are money type of resource, like book, digital document, publication etc.
+    We want create two model-class.
 
-   - Author
-   - Book
-   - Resource
+    - Author
+    - Book
+    - Resource
 
-   ```
-       python manage.py startapp resource
-   ```
+    ```
+        python manage.py startapp resource
+    ```
 
-   Then create model-class and migrate
+    Then create model-class and migrate
 
-   ```
-       python manage.py makemigrations resource
-       python manage.py migrate resource
-   ```
+    ```
+        python manage.py makemigrations resource
+        python manage.py migrate resource
+    ```
 
-7. ## Create `transaction` App
+### 7. Create `transaction` App
 
-   There are two type of transaction currently in CLIC.
+    There are two type of transaction currently in CLIC.
 
-   - TrxBook
-   - TrxResource
+    - TrxBook
+    - TrxResource
 
-   Firstly create `transaction` app and then add model-class.
+    Firstly create `transaction` app and then add model-class.
 
-   ```
-       python manage.py startapp transaction
-   ```
+    ```
+        python manage.py startapp transaction
+    ```
 
-   Then make migrations for `transaction`
+    Then make migrations for `transaction`
 
-   ```
-       python manage.py makemigrations transaction
-       python manage.py migrate transaction
-   ```
+    ```
+        python manage.py makemigrations transaction
+        python manage.py migrate transaction
+    ```
 
-8. ## Create `service` App
+### 8. Create `service` App
 
-   In `service` app can have many type of model-class. Currently have:
+    In `service` app can have many type of model-class. Currently have:
 
-   - Request
-   - Report
-   - Notice
+    - Request
+    - Report
+    - Notice
 
-   Firstly create `service` app and then add model-class.
+    Firstly create `service` app and then add model-class.
 
-   ```
-       python manage.py startapp service
-   ```
+    ```
+        python manage.py startapp service
+    ```
 
-   Then make a migration:
+    Then make a migration:
 
-   ```
-       python manage.py makemigrations service
-       python manage.py migrate service
-   ```
+    ```
+        python manage.py makemigrations service
+        python manage.py migrate service
+    ```
 
-9. ## Create `amtd` App
+### 9. Create `amtd` App
 
-   `Activity Monitoring and Threat Detection` ( **AMTD** ) is for monitoring all transaction and user activity and threat dectection.
-   In this `amtd` App currently have one model-class:
+    `Activity Monitoring and Threat Detection` ( **AMTD** ) is for monitoring all transaction and user activity and threat dectection.
+    In this `amtd` App currently have one model-class:
 
-   - Activity
+    - Activity
 
-   Firstly create `amtd` app and then add model-class.
+    Firstly create `amtd` app and then add model-class.
 
-   ```
-       python manage.py startapp amtd
-   ```
+    ```
+        python manage.py startapp amtd
+    ```
 
-   Then make a migration:
+    Then make a migration:
 
-   ```
-       python manage.py makemigrations amtd
-       python manage.py migrate amtd
-   ```
+    ```
+        python manage.py makemigrations amtd
+        python manage.py migrate amtd
+    ```
 
-10. ## Create `post` App
+### 10. Create `post` App
 
     In this `post` App currently have one model-class:
 
@@ -177,7 +177,7 @@ It is the step by step implementation activity.
         python manage.py migrate post
     ```
 
-11. ## Create `comment` App
+### 11. Create `comment` App
 
     In this `comment` App currently have one model-class:
 
@@ -196,7 +196,7 @@ It is the step by step implementation activity.
         python manage.py migrate comment
     ```
 
-12. ## Create `messenger` App
+### 12. Create `messenger` App
 
     In this `messenger` App currently have one model-class:
 
@@ -215,7 +215,7 @@ It is the step by step implementation activity.
         python manage.py migrate messenger
     ```
 
-13. ## Install `django-notifications-hq` (`notifications`) App
+### 13. Install `django-notifications-hq` (`notifications`) App
 
     [django-notifications-hq](https://pypi.org/project/django-notifications-hq/) is a GitHub notification alike app for Django.
 

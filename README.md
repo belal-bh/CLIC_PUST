@@ -137,3 +137,16 @@ It is the step by step implementation activity.
        python manage.py makemigrations service
        python manage.py migrate service
    ```
+
+9. ## Create `amtd`
+
+   `Activity Monitoring and Threat Detection` ( **AMTD** ) is for monitoring all transaction and user activity and threat dectection.
+   In this `amtd` App currently have one model-class:
+
+   - Activity
+
+   Firstly create `amtd` app and then add model-class.
+
+   ```
+       python manage.py startapp amtd
+   ```

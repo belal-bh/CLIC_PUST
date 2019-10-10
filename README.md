@@ -247,3 +247,9 @@ It is the step by step implementation activity.
             ...
         ]
     ```
+
+    To run schema migration, execute:
+
+    ```
+        python manage.py migrate notifications
+    ```

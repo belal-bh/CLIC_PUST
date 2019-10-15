@@ -6,6 +6,22 @@ Warning should be considered and should be made resonable decision.
 
 1. In _academic_ app model's has `ForeignKey(settings.AUTH_USER_MODEL)`. But it should (may be) be `OneToOneField(settings.AUTH_USER_MODEL)`.
 
+## ERROR!!!
+
+1. django.core.exceptions.FieldError: 'validity' cannot be specified for User model form as it is a non-editable field
+
+Fix:
+
+```
+    Previous:
+    validity = models.DateTimeField(
+        auto_now=False, auto_now_add=True)  # need customization
+
+    Fixed:
+    validity = models.DateTimeField(
+        auto_now=False, auto_now_add=False)  # need customization
+```
+
 ## Implementation Workflow
 
 It is the step by step implementation activity.

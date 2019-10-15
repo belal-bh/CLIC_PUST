@@ -171,7 +171,7 @@ class User(AbstractBaseUser):
         blank=True
     )
     validity = models.DateTimeField(
-        auto_now=False, auto_now_add=True)  # need customization
+        auto_now=False, auto_now_add=False)  # need customization
 
     active = models.BooleanField(default=True)
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)

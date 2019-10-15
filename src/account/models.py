@@ -10,7 +10,7 @@ from django.contrib.auth.models import (
 )
 
 # from notifications.signals import notify
-from account.helpers import UploadTo
+from account.helpers import UploadTo, DefaultPeriod
 
 CONTACT_MOBILE_REGEX = '^(?:\+?88|0088)?01[15-9]\d{8}$'
 CONTACT_PHONE_REGEX = '^(?:\+?88|0088)?0\d{10}$'
@@ -171,7 +171,7 @@ class User(AbstractBaseUser):
         blank=True
     )
     validity = models.DateTimeField(
-        auto_now=False, auto_now_add=False)  # need customization
+        auto_now=False, auto_now_add=False, default=DefaultPeriod(years=1, hour=10))  # need customization
 
     active = models.BooleanField(default=True)
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)

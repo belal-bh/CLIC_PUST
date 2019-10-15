@@ -3,6 +3,8 @@ import time
 import datetime
 from django.contrib.contenttypes.models import ContentType
 
+from dateutil.relativedelta import relativedelta
+
 
 class UploadTo:
     ''' UploadTo
@@ -53,3 +55,30 @@ class UploadTo:
 
     def deconstruct(self):
         return ('account.helpers.UploadTo', [self.folder_name], {})
+
+
+class DefaultPeriod:
+    def __init__(self, years=0, months=0, weeks=0, days=0, hour=10):
+        self.years = years
+        self.months = months
+        self.weeks = weeks
+        self.days = days
+        self.hour = hour
+
+    def __call__(self, instance):
+        ''' CALL DefaultPeriod
+            [instance]: instance is an instance of a dango_model of an django_app
+        '''
+        period = self.set_period(instance)
+        return period
+
+    def set_period(self, instance):
+        NOW = datetime.datetime.now()
+        period = NOW + relativedelta(
+            years=+self.years,
+            months=+self.months,
+            weeks=+self.weeks,
+            days=+self.days,
+            hour=10
+        )
+        return period

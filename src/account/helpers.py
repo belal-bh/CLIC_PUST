@@ -82,3 +82,6 @@ class DefaultPeriod:
             hour=10
         )
         return period
+
+    def deconstruct(self):
+        return ('account.helpers.DefaultPeriod', [], {})

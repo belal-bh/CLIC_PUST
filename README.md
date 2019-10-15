@@ -22,6 +22,10 @@ Fix:
         auto_now=False, auto_now_add=False)  # need customization
 ```
 
+## Links
+
+- [dateutil - powerful extensions to datetime](https://github.com/dateutil/dateutil)
+
 ## Implementation Workflow
 
 It is the step by step implementation activity.

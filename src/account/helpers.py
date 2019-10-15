@@ -65,14 +65,14 @@ class DefaultPeriod:
         self.days = days
         self.hour = hour
 
-    def __call__(self, instance):
-        ''' CALL DefaultPeriod
-            [instance]: instance is an instance of a dango_model of an django_app
+    def __call__(self):
+        ''' 
+            CALL DefaultPeriod
         '''
-        period = self.set_period(instance)
+        period = self.set_period()
         return period
 
-    def set_period(self, instance):
+    def set_period(self):
         NOW = datetime.datetime.now()
         period = NOW + relativedelta(
             years=+self.years,

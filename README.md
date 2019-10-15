@@ -6,6 +6,11 @@ Warning should be considered and should be made resonable decision.
 
 1. In _academic_ app model's has `ForeignKey(settings.AUTH_USER_MODEL)`. But it should (may be) be `OneToOneField(settings.AUTH_USER_MODEL)`.
 
+2. Running migrations:
+   D:\Dev\cseai_env\lib\site-packages\django\db\models\fields\_\_init\_\_.py:1421: RuntimeWarning: DateTimeField User.validity received a naive datetime (2019-10-16 10:15:38.094172) while time zone support is active.
+   RuntimeWarning)
+   Applying account.0004_auto_20191016_0414... OK
+
 ## ERROR!!!
 
 1. django.core.exceptions.FieldError: 'validity' cannot be specified for User model form as it is a non-editable field

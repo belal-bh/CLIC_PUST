@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block head_title %}
+{{title}} | {{block.super}}
+{% endblock head_title %}
+
+{% block content %}
+<div class="row flex-row h-100 bg-white">
+    <!-- Begin Left Content -->
+    <div class="col-xl-7 col-lg-5 col-md-4 no-padding">
+        <div class="elisyam-bg background-01">
+            <div class="elisyam-overlay overlay-03"></div>
+            <div class="authentication-col-content mx-auto">
+                <h1 class="gradient-text-01">
+                    <span class="">Welcome To</span>
+                    CLIC
+                </h1>
+                <small class="description">
+                    Central Library & Information Center (CLIC) of Pabna University of Science & Technology is basically
+                    designed to serve the actual need of its students, faculty, officers and researchers. It carries out
+                    a variety
+                    of activities to support the academic and research endeavor and to promote a better understanding of
+                    the
+                    policies, curriculum and culture of the University.
+                </small>
+            </div>
+        </div>
+    </div>
+    <!-- End Left Content -->
+    <!-- Begin Right Content -->
+    <div class="col-xl-5 col-lg-7 col-md-8 my-auto no-padding">
+        <!-- Begin Form -->
+        <div class="authentication-form mx-auto">
+            <div class="logo-centered">
+                <a href="#">
+                    <img src="{% static 'assets/img/logo.png' %}" alt="logo" />
+                </a>
+            </div>
+            <h3>Sign Up Procedure At CLIC, PUST</h3>
+
+            <div class="row">
+                <div>
+                    <p>
+                        {{procedure}}
+                    </p>
+                    <br />
+                    <p class="text-info">See the student <a target="_blank"
+                            href="/static/assets/img/apps/account/registrationform.jpg">Sign Up form</a>. </p>
+                </div>
+
+            </div>
+            <div class="register">
+                Already have an account ?
+                <br />
+                <a href="/login">Sign In</a>
+            </div>
+            <br />
+        </div>
+        <!-- End Form -->
+    </div>
+    <!-- End Right Content -->
+</div>
+<!-- End Row -->
+{% endblock content %}

@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block head_title %}
+{{title}} | {{block.super}}
+{% endblock head_title %}
+
+{% block content %}
+<div class="row flex-row h-100 bg-white">
+  <!-- Begin Left Content -->
+  <div class="col-xl-7 col-lg-5 col-md-4 no-padding">
+    <div class="elisyam-bg background-01">
+      <div class="elisyam-overlay overlay-03"></div>
+      <div class="authentication-col-content mx-auto">
+        <h1 class="gradient-text-01">
+          <span class="">Welcome To</span>
+          CLIC
+        </h1>
+        <small class="description">
+          Central Library & Information Center (CLIC) of Pabna University of Science & Technology is basically
+          designed to serve the actual need of its students, faculty, officers and researchers. It carries out a variety
+          of activities to support the academic and research endeavor and to promote a better understanding of the
+          policies, curriculum and culture of the University.
+        </small>
+      </div>
+    </div>
+  </div>
+  <!-- End Left Content -->
+  <!-- Begin Right Content -->
+  <div class="col-xl-5 col-lg-7 col-md-8 my-auto no-padding">
+    <!-- Begin Form -->
+    <div class="authentication-form mx-auto">
+      <div class="logo-centered">
+        <a href="/">
+          <img src="{% static 'assets/img/logo.png' %}" alt="logo" />
+        </a>
+      </div>
+      <h3>Sign In To CLIC, PUST</h3>
+      <form id="loginform" method="POST" action="" enctype="multipart/form-data">
+        <!-- <div class="group material-input">
+          <input type="text" required />
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Email</label>
+        </div>
+        <div class="group material-input">
+          <input type="password" required />
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Password</label>
+        </div> -->
+        {% csrf_token %}
+        {{ form|crispy }}
+        <div class="row">
+          <div class="col text-left">
+            <div class="styled-checkbox">
+              <input type="checkbox" name="checkbox" id="remeber" />
+              <label for="remeber">Remember me</label>
+            </div>
+          </div>
+          <div class="col text-right">
+            <a href="#">Forgot Password ?</a>
+          </div>
+        </div>
+        <div class="sign-btn text-center">
+          <button for="loginform" type='submit' class='btn btn-lg btn-gradient-01'>{{title}}</button>
+        </div>
+      </form>
+      <div class="register">
+        Don't have an account?
+        <br />
+        <a href="{% url 'register' %}">Create an account</a>
+      </div>
+      <br />
+    </div>
+    <!-- End Form -->
+  </div>
+  <!-- End Right Content -->
+</div>
+<!-- End Row -->
+{% endblock content %}

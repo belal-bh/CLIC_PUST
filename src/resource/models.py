@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from django.contrib.postgres.fields import ArrayField
+from django.urls import reverse
 
 from account.helpers import UploadTo
 from academic.models import Department
@@ -34,6 +35,14 @@ class Author(models.Model):
     )
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
+
+    def __str__(self):
+        if self.name:
+            return self.name
+        return self.nicname
+
+    class Meta:
+        ordering = ["name", "nicname"]
 
 
 class Book(models.Model):
@@ -71,6 +80,17 @@ class Book(models.Model):
     work_done = models.PositiveIntegerField(default=0)
     status = models.CharField(max_length=15, null=True, blank=True)
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
+
+    def __str__(self):
+        if self.title:
+            return self.title
+        return self.call_number
+
+    class Meta:
+        ordering = ["title", "call_number"]
+
+    def get_absolute_url(self):
+        return reverse("resource:bookdetail", kwargs={"id": self.id})
 
 
 class Resource(models.Model):
@@ -116,3 +136,14 @@ class Resource(models.Model):
     work_done = models.PositiveIntegerField(default=0)
     status = models.CharField(max_length=15, null=True, blank=True)
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
+
+    def __str__(self):
+        if self.title:
+            return self.title
+        return self.call_number
+
+    class Meta:
+        ordering = ["title", "call_number"]
+
+    def get_absolute_url(self):
+        return reverse("resource:resdetail", kwargs={"id": self.id})

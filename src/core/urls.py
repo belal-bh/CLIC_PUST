@@ -21,9 +21,32 @@ from django.conf.urls.static import static
 
 import notifications.urls
 
+from account.views import (
+    login_view,
+    register_view,
+    logout_view,
+    index_page,
+)
 
 urlpatterns = [
+    path('', index_page, name='index'),
     path('admin/', admin.site.urls),
+
+    path('about/', include("core.coreurls", namespace='about')),
+
+    path('account/', include("account.urls", namespace='account')),
+    path('register/', register_view, name='register'),
+    path('login/', login_view, name='login'),
+    path('logout/', logout_view, name='logout'),
+
+    path('resource/', include("resource.urls", namespace='resource')),
+
+    path('blog/', include("post.urls", namespace='blog')),
+
+    path('service/', include("service.urls", namespace='service')),
+
+
+
     path('inbox/notifications/',
          include(notifications.urls, namespace='notifications')),
 ]

@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head_title %}
+{{title}} | {{block.super}}
+{% endblock head_title %}
+
+{% block content %}
+<div class="container">
+    <!-- Begin Search -->
+    {% include "search_resource.html" %}
+    <!-- End Search -->
+
+    <div class="row flex-row">
+        <div class="col-xl-12 os-animation" data-os-animation="fadeInUp">
+            <!-- Begin Widget 06 -->
+            <div class="widget widget-06 has-shadow">
+                <!-- Begin Widget Header -->
+                <div class="widget-header bordered d-flex align-items-center">
+                    <h2>{{title}}</h2>
+                    <div class="widget-options">
+                        <div class="dropdown">
+                            <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                class="dropdown-toggle">
+                                <i class="la la-ellipsis-h"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="#" class="dropdown-item">
+                                    <i class="la la-edit"></i>Edit Widget
+                                </a>
+                                <a href="#" class="dropdown-item faq">
+                                    <i class="la la-question-circle"></i>FAQ
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Widget Header -->
+                <!-- Begin Widget Body -->
+                <div class="widget-body p-0">
+                    <div id="list-group" class="widget-scroll" style="max-height:490px;">
+                        <ul class="reviews list-group w-100">
+                            {% for instance in object_list %}
+                            <!-- book item -->
+                            <li class="list-group-item">
+                                <div class="media">
+                                    <div class="media-left align-self-start" style="width: 140px;height: 170px;">
+                                        {% if instance.image  %}
+                                        <img src="{{ instance.image.url }}" style="width: 100%; height: 100%;"
+                                            alt="...">
+                                        {% endif %}
+                                    </div>
+                                    <div class="media-body align-self-center">
+                                        <div class="username">
+                                            <h4><a href="{{instance.get_absolute_url }}">{{ instance.title}}</a></h4>
+                                            <p>Category: <span class="ml-3 text-info">{{instance.resource_type}}</span>
+                                            </p>
+                                        </div>
+                                        <div class="msg">
+                                            <div class="stars">
+                                                <i class="la la-star"></i>
+                                                <i class="la la-star"></i>
+                                                <i class="la la-star"></i>
+                                                <i class="la la-star"></i>
+                                                <i class="la la-star-half-empty"></i>
+                                            </div>
+                                            <p>
+                                                {{instance.description|truncatechars_html:20}}
+                                            </p>
+                                        </div>
+                                        <div class="meta">
+                                            <div class="mr-3">Accession Number: <span
+                                                    class="text-warning">{{instance.accession_number}}</span></div>
+                                            <!-- <a href="#">Detail</a> -->
+                                        </div>
+                                    </div>
+                                    <div class="media-right pr-3 align-self-center">
+                                        <div class="like text-center">
+                                            <i class="ion-heart"></i>
+                                            <!-- <span>12</span> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- book item -->
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <!-- End List -->
+                </div>
+                <!-- End Widget Body -->
+                <div class="pagination">
+                    <div class="m-3 step-links">
+                        {% if object_list.has_previous %}
+                        <a class="btn btn-link text-info"
+                            href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">previous</a>
+                        {% endif %}
+
+                        <span class="current">
+                            Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
+                        </span>
+
+                        {% if object_list.has_next %}
+                        <a class="btn btn-link text-info"
+                            href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">next</a>
+                        {% endif %}
+                    </div>
+                    <br>
+                    <br>
+                </div>
+            </div>
+            <!-- End Widget 06 -->
+        </div>
+    </div>
+    <!-- End Row -->
+</div>
+<!-- End Container -->
+{% endblock content %}

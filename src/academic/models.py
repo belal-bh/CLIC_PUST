@@ -11,6 +11,14 @@ class Faculty(models.Model):
     description = models.TextField()
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
 
+    def __str__(self):
+        if self.name:
+            return self.name
+        return self.abbreviation
+
+    class Meta:
+        ordering = ["faculty_id", "name"]
+
 
 class Department(models.Model):
     dept_id = models.CharField(
@@ -26,6 +34,14 @@ class Department(models.Model):
     description = models.TextField()
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
 
+    def __str__(self):
+        if self.name:
+            return self.name
+        return self.abbreviation
+
+    class Meta:
+        ordering = ["dept_id", "name"]
+
 
 class Program(models.Model):
     program_id = models.CharField(
@@ -36,3 +52,11 @@ class Program(models.Model):
     abbreviation = models.CharField(max_length=15)
     description = models.TextField()
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
+
+    def __str__(self):
+        if self.name:
+            return self.name
+        return self.abbreviation
+
+    class Meta:
+        ordering = ["program_id", "name"]

@@ -40,10 +40,21 @@ INSTALLED_APPS = [
     'django.contrib.postgres',
 
     # third party
+    'crispy_forms',
     'rest_framework',
+    'notifications',
 
     # local apps
-    'accounts',
+    'account',
+    'academic',
+    'member',
+    'resource',
+    'transaction',
+    'service',
+    'amtd',
+    'post',
+    'comment',
+    'messenger',
 ]
 
 # added by belal from trdjango19
@@ -67,7 +78,20 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'),
+                 os.path.join(BASE_DIR, 'templates/account'),
+                 os.path.join(BASE_DIR, 'templates/academic'),
+                 os.path.join(BASE_DIR, 'templates/member'),
+                 os.path.join(BASE_DIR, 'templates/resource'),
+                 os.path.join(BASE_DIR, 'templates/transaction'),
+                 os.path.join(BASE_DIR, 'templates/service'),
+                 os.path.join(BASE_DIR, 'templates/amtd'),
+                 os.path.join(BASE_DIR, 'templates/post'),
+                 os.path.join(BASE_DIR, 'templates/comment'),
+                 os.path.join(BASE_DIR, 'templates/messenger'),
+                 os.path.join(BASE_DIR, 'templates/parts'),
+                 os.path.join(BASE_DIR, 'templates/core'),
+                 ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -89,7 +113,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'clicpust-v0-0',
+        'NAME': 'clicpustv00',
         'USER': 'dbuser',
         'PASSWORD': 'dbpassword',
         'HOST': 'localhost',
@@ -142,9 +166,9 @@ STATICFILES_DIRS = [
     # '/var/www/static/',
 ]
 
-STATIC_ROOT = '/myproject/site/public/cseai/static'
-# STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn")
+# STATIC_ROOT = '/myproject/site/public/cseai/static'
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn")
 
 MEDIA_URL = "/media/"
-MEDIA_ROOT = '/myproject/site/public/cseai/media'
-# MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media_cdn")
+# MEDIA_ROOT = '/myproject/site/public/cseai/media'
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media_cdn")

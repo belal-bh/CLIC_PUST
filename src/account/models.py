@@ -188,6 +188,8 @@ class User(AbstractBaseUser):
     objects = UserManager()
 
     def __str__(self):
+        if self.name:
+            return self.name
         return self.email
 
     # def get_absolute_url(self):

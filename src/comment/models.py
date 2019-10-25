@@ -6,6 +6,19 @@ from django.contrib.contenttypes.models import ContentType
 from account.helpers import UploadTo
 
 
+class CommentManager(models.Manager):
+    def all(self):
+        qs = super(CommentManager, self).filter(parent=None)
+        return qs
+
+    def filter_by_instance(self, instance):
+        content_type = ContentType.objects.get_for_model(instance.__class__)
+        obj_id = instance.id
+        qs = super(CommentManager, self).filter(
+            content_type=content_type, object_id=obj_id).filter(parent=None)
+        return qs
+
+
 class Comment(models.Model):
     content = models.TextField()
     image = models.ImageField(
@@ -27,3 +40,20 @@ class Comment(models.Model):
         settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
+
+    objects = CommentManager()
+
+    def __str__(self):
+        return str(self.user.email)
+
+    class Meta:
+        ordering = ['-timestamp']
+
+    def children(self):  # replies
+        return Comment.objects.filter(parent=self)
+
+    @property
+    def is_parent(self):
+        if self.parent is not None:
+            return False
+        return True

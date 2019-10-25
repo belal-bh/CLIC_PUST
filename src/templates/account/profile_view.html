@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+
+{% block head_title %}
+{{ title }} | {{ block.super }}
+{% endblock head_title %}
+
+{% block content %}
+<div class='container'>
+    <div class="row card-body">
+        <div class="col-sm-5">
+            {% if instance.image %}
+            <div class="profile-img">
+                <img src='{{ instance.image.url }}' / style="height: 150px; width: 150px; border-radius: 0%;">
+            </div>
+            {% endif %}
+        </div>
+        <div class="col-sm-7">
+            {% if instance.get_full_name %}
+            <h2><a class="text-muted" href="{{instance.get_absolute_url}}">{{ instance.get_full_name }}</a></h2>
+            {% endif %}
+            <p class="text-muted">Library_id: {{instance.library_id}}</p>
+        </div>
+    </div>
+    <br>
+
+    <div class="card-body">
+        {% if instance.bio %}
+        <div class="">
+            <dl class="row">
+                <dt class="col-sm-3 text-uppercase text-muted">Bio</dt>
+                <dd class="col-sm-9 text-muted">{{ instance.bio }}</dd>
+            </dl>
+        </div>
+        {% endif %}
+
+
+        {% if instance.current_address %}
+        <div class="">
+            <dl class="row">
+                <dt class="col-sm-3 text-uppercase text-muted">Current adrress</dt>
+                <dd class="col-sm-9 text-muted">{{ instance.current_address }}</dd>
+            </dl>
+        </div>
+        {% endif %}
+
+        {% if instance.parmanent_address %}
+        <div class="">
+            <dl class="row">
+                <dt class="col-sm-3 text-uppercase text-muted">Parmanent address</dt>
+                <dd class="col-sm-9 text-muted">{{ instance.parmanent_address }}</dd>
+            </dl>
+        </div>
+        {% endif %}
+        <br>
+    </div>
+    <br>
+</div>
+{% endblock content %}

@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.postgres',
 
     # third party
+    'crispy_forms',
     'rest_framework',
     'notifications',
 
@@ -75,7 +76,20 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'),
+                 os.path.join(BASE_DIR, 'templates/account'),
+                 os.path.join(BASE_DIR, 'templates/academic'),
+                 os.path.join(BASE_DIR, 'templates/member'),
+                 os.path.join(BASE_DIR, 'templates/resource'),
+                 os.path.join(BASE_DIR, 'templates/transaction'),
+                 os.path.join(BASE_DIR, 'templates/service'),
+                 os.path.join(BASE_DIR, 'templates/amtd'),
+                 os.path.join(BASE_DIR, 'templates/post'),
+                 os.path.join(BASE_DIR, 'templates/comment'),
+                 os.path.join(BASE_DIR, 'templates/messenger'),
+                 os.path.join(BASE_DIR, 'templates/parts'),
+                 os.path.join(BASE_DIR, 'templates/core'),
+                 ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

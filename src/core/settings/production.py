@@ -168,11 +168,11 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = os.path.join(
     os.path.dirname(os.path.dirname(BASE_DIR)),
-    'public', 'cseai', 'static_cdn'
+    'public', 'clicpust', 'static_cdn'
 )
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(
     os.path.dirname(os.path.dirname(BASE_DIR)),
-    'public', 'cseai', 'media_cdn'
+    'public', 'clicpust', 'media_cdn'
 )

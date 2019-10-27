@@ -166,9 +166,13 @@ STATICFILES_DIRS = [
     # '/var/www/static/',
 ]
 
-# STATIC_ROOT = '/myproject/site/public/cseai/static'
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn")
+STATIC_ROOT = os.path.join(
+    os.path.dirname(os.path.dirname(BASE_DIR)),
+    'public', 'cseai', 'static_cdn'
+)
 
 MEDIA_URL = "/media/"
-# MEDIA_ROOT = '/myproject/site/public/cseai/media'
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media_cdn")
+MEDIA_ROOT = os.path.join(
+    os.path.dirname(os.path.dirname(BASE_DIR)),
+    'public', 'cseai', 'media_cdn'
+)

@@ -1,0 +1,60 @@
+<!-- Begin Navigation -->
+<div class="horizontal-menu">
+    <div class="container">
+        <div class="row">
+            <nav class="navbar navbar-light navbar-expand-lg main-menu">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" href="#" id="dashboard" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">About</a>
+                            <ul class="dropdown-menu" aria-labelledby="dashboard">
+                                <li><a href="{% url 'about:pust' %}">PUST</a></li>
+                                <li><a href="{% url 'about:clic' %}">CLIC</a></li>
+                                <li><a href="{% url 'about:faculty' %}">Faculty</a></li>
+                                <li><a href="{% url 'about:department' %}">Department</a></li>
+                                <li><a href="{% url 'about:institute' %}">Institute</a></li>
+                                <li><a href="{% url 'about:administration' %}">Administration</a></li>
+                                <li><a href="{% url 'about:dormitory' %}">Dormitory</a></li>
+                                <li><a href="{% url 'about:contact' %}">Contact</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" href="#" id="applications" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">Resource</a>
+                            <ul class="dropdown-menu" aria-labelledby="applications">
+                                <li><a href="{% url 'resource:booklist' %}">Book</a></li>
+                                <li><a href="{% url 'resource:reslist' %}">Other Resource</a></li>
+                                <li><a href="{% url 'resource:doclist' %}">Digital Document</a></li>
+                                <li><a href="{% url 'resource:newspaperlist' %}">News Paper</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" href="#" id="categories" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">Category</a>
+                            <ul class="dropdown-menu" aria-labelledby="categories">
+                                <li><a href="{% url 'about:underconstruction' %}">Department</a></li>
+                                <li><a href="{% url 'about:underconstruction' %}">Faculty</a></li>
+                                <li><a href="{% url 'about:underconstruction' %}">Publications</a></li>
+                                <li><a href="{% url 'about:underconstruction' %}">Higher Study</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="{% url 'blog:postlist' %}">Blog</a></li>
+                        <li><a href="{% url 'service:noticelist' %}">Notice</a></li>
+                        {% if request.user.is_authenticated %}
+                        <li><a href="/admin/">Dashboard</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- End Navigation -->

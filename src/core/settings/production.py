@@ -89,7 +89,7 @@ TEMPLATES = [
                  os.path.join(BASE_DIR, 'templates/post'),
                  os.path.join(BASE_DIR, 'templates/comment'),
                  os.path.join(BASE_DIR, 'templates/messenger'),
-                 os.path.join(BASE_DIR, 'templates/parts'),
+                 os.path.join(BASE_DIR, 'templates/base_segments'),
                  os.path.join(BASE_DIR, 'templates/core'),
                  ],
         'APP_DIRS': True,

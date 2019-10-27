@@ -1,0 +1,38 @@
+<!-- Begin Search -->
+<div class="row">
+    <div class="page-header">
+        <div class="section-title mt-3 mb-3">
+            <h3>Search Resource</h3>
+        </div>
+        <form class="form-inline" action="/resource/res?" method="GET">
+            <label class="sr-only" for="rq">Search here...</label>
+            <input type="text" name='rq' class="form-control mb-2 mr-sm-2" id="rq" placeholder="Boi Ghor Magazine...">
+            <label class="sr-only" for="by"></label>
+            <div class="input-group mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">By</div>
+                </div>
+                <select name='by' id="by" class="custom-select">
+                    <!-- <option selected>...</option> -->
+                    <option value="title">Title</option>
+                    <option value="accession_number">Accession_number</option>
+                    <option value="call_number">Call_number</option>
+                </select>
+            </div>
+            <div class="input-group mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Category</div>
+                </div>
+                <select name='rt' id="rt" class="custom-select">
+                    <option selected value="all">All</option>
+                    <option value="software">Software</option>
+                    <option value="hardware">Hardware</option>
+                    <option value="magazine">Magazine</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">Search</button>
+        </form>
+    </div>
+</div>
+<!-- End Search -->

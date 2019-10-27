@@ -1,0 +1,28 @@
+<!-- Begin Search -->
+<div class="row">
+    <div class="page-header">
+        <div class="section-title mt-3 mb-3">
+            <h3>Search Book</h3>
+        </div>
+        <form class="form-inline" action="/resource/book?" method="GET">
+            <label class="sr-only" for="q">Search here...</label>
+            <input type="text" name='q' class="form-control mb-2 mr-sm-2" id="q" placeholder="Web Engineering...">
+            <label class="sr-only" for="by"></label>
+            <div class="input-group mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">By</div>
+                </div>
+                <select name='by' id="by" class="custom-select">
+                    <!-- <option selected>...</option> -->
+                    <option value="title">Title</option>
+                    <option value="author">Author</option>
+                    <option value="accession_number">Accession_number</option>
+                    <option value="call_number">Call_number</option>
+                    <option value="isbn">ISBN</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">Search</button>
+        </form>
+    </div>
+</div>
+<!-- End Search -->

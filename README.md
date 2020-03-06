@@ -278,3 +278,88 @@ To run schema migration, execute:
 ```
     python manage.py migrate notifications
 ```
+
+
+## Working Configuration and command
+python
+```
+    # python version required 3.6 ...i.e. 3.6.8
+    pip install virtualenv
+```
+
+environment
+```
+    virtualenv clicpustenv
+```
+
+clone repository
+```
+    git clone https://github.com/belal-bh/CLIC_PUST.git
+```
+
+activate env
+```
+    # cmd
+    clicpustenv\Scripts\activate
+
+    # or in git-bash
+    source clicpustenv\Scripts\activate
+```
+
+installation
+```
+    cd CLIC_PUST
+    pip install -r requirements.txt
+```
+
+Then create or copy directories and files for `media_cdn` and `static_cdn` :
+Or copy from `copyUpdir` to one lebel upper directory that means => CLIC_PUST/
+```
+    media_cdn
+    ----account
+    --------user
+    ------------image
+    ----------------default.png
+
+    ----comment
+    --------image
+
+    ----post
+    --------image
+    --------post
+    ------------image
+
+    ----resource
+    --------book
+    ------------default.png
+    --------resource
+    ------------default.png
+
+    static_cdn
+```
+
+Check Database and settings:
+```
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'clicpust-v0-0', # change if needed
+            'USER': 'dbuser',        # change if needed
+            'PASSWORD': 'dbpassword',# change if needed
+            'HOST': '127.0.0.1',
+            'PORT': '5432',
+        }
+    }
+```
+
+Then make migrations and migrate:
+```
+    cd src
+    python manage.py makemigrations
+    python manage.py migrate
+```
+
+Run development server:
+```
+    python manage.py runserver
+```

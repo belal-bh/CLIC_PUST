@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'post',
     'comment',
     'messenger',
+    'wishlist',
 ]
 
 # added by belal from trdjango19

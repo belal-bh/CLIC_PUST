@@ -279,6 +279,27 @@ To run schema migration, execute:
     python manage.py migrate notifications
 ```
 
+### 14. Create `wishlist` App
+
+In this `wishlist` App currently have two model-class:
+
+- bookCart
+- resourceCart
+
+
+Firstly create `wishlist` app and then add model-class.
+
+```
+    python manage.py startapp wishlist
+```
+
+Then make a migration:
+
+```
+    python manage.py makemigrations wishlist
+    python manage.py migrate wishlist
+```
+
 
 ## Working Configuration and command
 python

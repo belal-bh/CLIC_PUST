@@ -54,6 +54,42 @@
         </div>
         {% endif %}
         <br>
+        {% if instance.no_borrowed_books %}
+        <div class="">
+            <dl class="row">
+                <dt class="col-sm-3 text-uppercase text-muted">no_borrowed_books</dt>
+                <dd class="col-sm-9 text-muted">{{ instance.no_borrowed_books }}</dd>
+            </dl>
+        </div>
+        {% endif %}
+        <br>
+        {% if instance.no_borrowed_resources %}
+        <div class="">
+            <dl class="row">
+                <dt class="col-sm-3 text-uppercase text-muted">no_borrowed_resources</dt>
+                <dd class="col-sm-9 text-muted">{{ instance.no_borrowed_resources }}</dd>
+            </dl>
+        </div>
+        {% endif %}
+        <br>
+        {% if instance.validity %}
+        <div class="">
+            <dl class="row">
+                <dt class="col-sm-3 text-uppercase text-muted">validity</dt>
+                <dd class="col-sm-9 text-muted">{{ instance.validity }}</dd>
+            </dl>
+        </div>
+        {% endif %}
+        <br>
+        {% if instance.active %}
+        <div class="">
+            <dl class="row">
+                <dt class="col-sm-3 text-uppercase text-muted">active</dt>
+                <dd class="col-sm-9 text-muted">{{ instance.active }}</dd>
+            </dl>
+        </div>
+        {% endif %}
+        <br>
     </div>
     <br>
 </div>

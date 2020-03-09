@@ -31,6 +31,7 @@ from account.views import (
 urlpatterns = [
     path('', index_page, name='index'),
     path('admin/', admin.site.urls),
+    path('lib/', include("core.lib.urls", namespace='lib')),
 
     path('about/', include("core.coreurls", namespace='about')),
 

@@ -12,6 +12,16 @@ from .models import (
     Author,
 )
 
+from wishlist.models import (
+    BookCart,
+    ResourceCart
+)
+
+from .forms import (
+    BookForm,
+    ResourceForm
+)
+
 
 def book_list(request):
     today = timezone.now().date()
@@ -67,15 +77,27 @@ def book_list(request):
 
 def book_detail(request, id):
     instance = get_object_or_404(Book, id=id)
-    # query = request.GET.get("q")
-    # print('query:', query)
-    # if not query:
-    #     return redirect('/resource/book/')
+    cart_added =  BookCart.objects.all().filter(book=instance, user=request.user).first()
+
+    form = BookForm(request.POST or None, request.FILES or None)
+    if form.is_valid() and not cart_added:
+        cart_instance = form.save(commit=False)
+        cart_instance.book = instance
+        cart_instance.user = request.user
+        cart_instance.save()
+        print("Submitted BookCart", form)
+        # message success
+        # messages.success(request, "Successfully Added to BookCart")
+
     context = {
         "instance": instance,
         "title": "Book Detail",
+        "form": form,
+        'cart_added': cart_added,
     }
     return render(request, "book_detail.html", context)
+
+
 
 
 def resource_list(request):
@@ -128,9 +150,22 @@ def resource_list(request):
 
 def resource_detail(request, id):
     instance = get_object_or_404(Resource, id=id)
+
+    cart_added =  ResourceCart.objects.all().filter(resource=instance, user=request.user).first()
+
+    form = ResourceForm(request.POST or None, request.FILES or None)
+    if form.is_valid() and not cart_added:
+        cart_instance = form.save(commit=False)
+        cart_instance.resource = instance
+        cart_instance.user = request.user
+        cart_instance.save()
+        print("Submitted ResourceCart", form)
+
     context = {
         "instance": instance,
         "title": "Resource Detail",
+        "form": form,
+        'cart_added': cart_added,
     }
     return render(request, "resource_detail.html", context)
 

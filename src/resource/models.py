@@ -78,7 +78,7 @@ class Book(models.Model):
     added_by = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, blank=True)
     work_done = models.PositiveIntegerField(default=0)
-    status = models.CharField(max_length=15, null=True, blank=True)
+    status = models.CharField(max_length=15, default="available", null=True, blank=True)
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
 
     def __str__(self):
@@ -134,7 +134,7 @@ class Resource(models.Model):
     added_by = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, blank=True)
     work_done = models.PositiveIntegerField(default=0)
-    status = models.CharField(max_length=15, null=True, blank=True)
+    status = models.CharField(max_length=15, default="available", null=True, blank=True)
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
 
     def __str__(self):

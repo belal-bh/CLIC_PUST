@@ -92,6 +92,7 @@ TEMPLATES = [
                  os.path.join(BASE_DIR, 'templates/messenger'),
                  os.path.join(BASE_DIR, 'templates/base_segments'),
                  os.path.join(BASE_DIR, 'templates/core'),
+                 os.path.join(BASE_DIR, 'templates/lib'),
                  ],
         'APP_DIRS': True,
         'OPTIONS': {

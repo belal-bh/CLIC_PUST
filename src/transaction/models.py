@@ -2,7 +2,18 @@ from django.db import models
 from django.conf import settings
 import uuid
 
-from resource.models import Book, Resource
+from resource.models import (
+    Book, 
+    Resource
+)
+
+class TrxBookManager(models.Manager):
+    def get_queryset(self, *args, **kwargs):
+        return super(TrxBookManager, self).get_queryset().filter(status="open")
+
+class TrxResourceManager(models.Manager):
+    def get_queryset(self, *args, **kwargs):
+        return super(TrxResourceManager, self).get_queryset().filter(status="open")
 
 
 class TrxBook(models.Model):
@@ -21,6 +32,11 @@ class TrxBook(models.Model):
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
 
+    objects = TrxBookManager()
+
+    def __str__(self):
+        return self.book.title
+    
 
 class TrxResource(models.Model):
     trxid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
@@ -37,3 +53,8 @@ class TrxResource(models.Model):
     status = models.CharField(max_length=15, null=True, blank=True)
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
+
+    objects = TrxResourceManager()
+
+    def __str__(self):
+        return self.resource.title

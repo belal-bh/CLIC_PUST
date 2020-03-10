@@ -1,5 +1,5 @@
 <!-- Begin Navigation -->
-<div class="horizontal-menu">
+<div class="horizontal-menu" style="background: #3366CC !important; color:white !important"> 
     <div class="container">
         <div class="row">
             <nav class="navbar navbar-light navbar-expand-lg main-menu">
@@ -11,45 +11,45 @@
                     <span></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav mr-auto" >
                         <li class="dropdown">
                             <a class="dropdown-toggle" href="#" id="dashboard" role="button" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">About</a>
-                            <ul class="dropdown-menu" aria-labelledby="dashboard">
-                                <li><a href="{% url 'about:pust' %}">PUST</a></li>
-                                <li><a href="{% url 'about:clic' %}">CLIC</a></li>
-                                <li><a href="{% url 'about:faculty' %}">Faculty</a></li>
-                                <li><a href="{% url 'about:department' %}">Department</a></li>
-                                <li><a href="{% url 'about:institute' %}">Institute</a></li>
-                                <li><a href="{% url 'about:administration' %}">Administration</a></li>
-                                <li><a href="{% url 'about:dormitory' %}">Dormitory</a></li>
-                                <li><a href="{% url 'about:contact' %}">Contact</a></li>
+                                aria-haspopup="true" aria-expanded="false" style="color : white !important">About</a>
+                            <ul class="dropdown-menu" aria-labelledby="dashboard" style="background : #3366cc !important;text-align: center;">
+                                <li style="border-bottom:1px solid #6699ff;"><a href="{% url 'about:pust' %}" style="color : white !important">PUST</a></li>
+                                <li style="border-bottom:1px solid #6699ff;"><a href="{% url 'about:clic' %}" style="color : white !important">CLIC</a></li>
+                                <li style="border-bottom:1px solid #6699ff;"><a href="{% url 'about:faculty' %}" style="color : white !important">Faculty</a></li>
+                                <li style="border-bottom:1px solid #6699ff;"><a href="{% url 'about:department' %}" style="color : white !important">Department</a></li>
+                                <li style="border-bottom:1px solid #6699ff;"><a href="{% url 'about:institute' %}" style="color : white !important">Institute</a></li>
+                                <li style="border-bottom:1px solid #6699ff;"><a href="{% url 'about:administration' %}" style="color : white !important">Administration</a></li>
+                                <li style="border-bottom:1px solid #6699ff;"><a href="{% url 'about:dormitory' %}" style="color : white !important" >Dormitory</a></li>
+                                <li style="border-bottom:1px solid #6699ff;"><a href="{% url 'about:contact' %}" style="color : white !important">Contact</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle" href="#" id="applications" role="button" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">Resource</a>
-                            <ul class="dropdown-menu" aria-labelledby="applications">
-                                <li><a href="{% url 'resource:booklist' %}">Book</a></li>
-                                <li><a href="{% url 'resource:reslist' %}">Other Resource</a></li>
-                                <li><a href="{% url 'resource:doclist' %}">Digital Document</a></li>
-                                <li><a href="{% url 'resource:newspaperlist' %}">News Paper</a></li>
+                                aria-haspopup="true" aria-expanded="false" style="color : white !important" >Resource</a>
+                            <ul class="dropdown-menu" aria-labelledby="applications"  style="background : #3366cc !important;text-align: center;">
+                                <li style="border-bottom:1px solid #6699ff;"><a href="{% url 'resource:booklist' %}" style="color : white !important">Book</a></li>
+                                <li style="border-bottom:1px solid #6699ff;"><a href="{% url 'resource:reslist' %}" style="color : white !important">Other Resource</a></li>
+                                <li style="border-bottom:1px solid #6699ff;"><a href="{% url 'resource:doclist' %}" style="color : white !important">Digital Document</a></li>
+                                <li style="border-bottom:1px solid #6699ff;"><a href="{% url 'resource:newspaperlist' %}" style="color : white !important">News Paper</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle" href="#" id="categories" role="button" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">Category</a>
-                            <ul class="dropdown-menu" aria-labelledby="categories">
-                                <li><a href="{% url 'about:underconstruction' %}">Department</a></li>
-                                <li><a href="{% url 'about:underconstruction' %}">Faculty</a></li>
-                                <li><a href="{% url 'about:underconstruction' %}">Publications</a></li>
-                                <li><a href="{% url 'about:underconstruction' %}">Higher Study</a></li>
+                                aria-haspopup="true" aria-expanded="false" style="color : white !important">Category</a>
+                            <ul class="dropdown-menu" aria-labelledby="categories"  style="background : #3366cc !important;text-align: center;">
+                                <li style="border-bottom:1px solid #6699ff;"><a href="{% url 'about:underconstruction' %}" style="color : white !important">Department</a></li>
+                                <li style="border-bottom:1px solid #6699ff;"><a href="{% url 'about:underconstruction' %}" style="color : white !important">Faculty</a></li>
+                                <li style="border-bottom:1px solid #6699ff;"><a href="{% url 'about:underconstruction' %}" style="color : white !important">Publications</a></li>
+                                <li style="border-bottom:1px solid #6699ff;"><a href="{% url 'about:underconstruction' %}" style="color : white !important">Higher Study</a></li>
                             </ul>
                         </li>
-                        <li><a href="{% url 'blog:postlist' %}">Blog</a></li>
-                        <li><a href="{% url 'service:noticelist' %}">Notice</a></li>
+                        <li><a href="{% url 'blog:postlist' %}" style="color : white !important">Blog</a></li>
+                        <li><a href="{% url 'service:noticelist' %}" style="color : white !important">Notice</a></li>
                         {% if request.user.is_authenticated %}
-                        <li><a href="/admin/">Dashboard</a></li>
+                        <li><a href="/admin/" style="color : white !important">Dashboard</a></li>
                         {% endif %}
                     </ul>
                 </div>

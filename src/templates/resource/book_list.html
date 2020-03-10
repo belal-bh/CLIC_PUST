@@ -78,6 +78,13 @@
                                         </div>
                                     </div>
                                     <div class="media-right pr-3 align-self-center">
+                                        <div>
+                                            {% if instance.status == 'available' %}
+                                            <span class="text-success">Available</span>
+                                            {% else %}
+                                            <span class="text-info">Unavailable</span>
+                                            {% endif %}
+                                        </div>
                                         <div class="like text-center">
                                             <i class="ion-heart"></i>
                                             <!-- <span>12</span> -->

@@ -93,6 +93,13 @@
                                                 <span class="ml-3 text-warning">{{department.abbreviation}},</span>
                                                 {% endfor %}
                                             </div>
+                                            <div class="mr-3">Status: 
+                                                {% if instance.status == 'available' %}
+                                                <span class="ml-3 text-success">Available</span>
+                                                {% else %}
+                                                <span class="ml-3 text-info">Unavailable</span>
+                                                {% endif %}
+                                            </div>
                                             <!-- <a href="#">Detail</a> -->
                                         </div>
                                     </div>
@@ -100,7 +107,7 @@
                                         <div class="like text-center">
                                             {% if cart_added %}
                                                 <div>Added to BookCart</div>
-                                                {% else %}
+                                            {% else %}
                                             <form method='POST' action='' enctype='multipart/form-data'>{% csrf_token %}
                                                 {{ form|crispy }}
                                                 <input type='submit' class='btn btn-default' value='Add BookCart'>

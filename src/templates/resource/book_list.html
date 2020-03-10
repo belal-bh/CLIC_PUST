@@ -99,8 +99,8 @@
                     <!-- End List -->
                 </div>
                 <!-- End Widget Body -->
-                <div class="pagination">
-                    <div class="m-3 step-links">
+                <div class="media"> <!--pagination-->
+                    <div class=" media-left pl-3 align-self-center">
                         {% if object_list.has_previous %}
                         <a class="btn btn-link text-info"
                             href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">previous</a>
@@ -114,6 +114,11 @@
                         <a class="btn btn-link text-info"
                             href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">next</a>
                         {% endif %}
+                    </div>
+                    <div class="media-right pr-3 align-self-center">
+                        <div>
+                            <button class="like text-center">Button</button>
+                        </div>
                     </div>
                     <br>
                     <br>

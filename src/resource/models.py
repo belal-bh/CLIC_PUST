@@ -44,6 +44,17 @@ class Author(models.Model):
     class Meta:
         ordering = ["name", "nicname"]
 
+class BookManager(models.Manager):
+    def available(self, *args, **kwargs):
+        status_available = 'available'
+        return super(BookManager, self).filter(status=status_available)
+
+class ResourceManager(models.Manager):
+    def available(self, *args, **kwargs):
+        status_available = 'available'
+        return super(ResourceManager, self).filter(status=status_available)
+
+
 
 class Book(models.Model):
     title = models.CharField(max_length=255)
@@ -80,6 +91,8 @@ class Book(models.Model):
     work_done = models.PositiveIntegerField(default=0)
     status = models.CharField(max_length=15, default="available", null=True, blank=True)
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
+
+    objects = BookManager()
 
     def __str__(self):
         if self.title:
@@ -136,6 +149,8 @@ class Resource(models.Model):
     work_done = models.PositiveIntegerField(default=0)
     status = models.CharField(max_length=15, default="available", null=True, blank=True)
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
+
+    objects = ResourceManager()
 
     def __str__(self):
         if self.title:

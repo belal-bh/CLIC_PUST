@@ -18,8 +18,8 @@ from wishlist.models import (
 )
 
 from .forms import (
-    BookForm,
-    ResourceForm
+    BookCartForm,
+    ResourceCartForm
 )
 
 
@@ -53,7 +53,7 @@ def book_list(request):
                 Q(isbn__icontains=query)
             ).distinct()
 
-    paginator = Paginator(queryset_list, 5)  # Show 25 contacts per page
+    paginator = Paginator(queryset_list, 2)  # Show 25 contacts per page
     page_request_var = "page"
     page = request.GET.get(page_request_var)
     try:
@@ -79,13 +79,13 @@ def book_detail(request, id):
     instance = get_object_or_404(Book, id=id)
     cart_added =  BookCart.objects.all().filter(book=instance, user=request.user).first()
 
-    form = BookForm(request.POST or None, request.FILES or None)
+    form = BookCartForm(request.POST or None, request.FILES or None)
     if form.is_valid() and not cart_added:
         cart_instance = form.save(commit=False)
         cart_instance.book = instance
         cart_instance.user = request.user
         cart_instance.save()
-        print("Submitted BookCart", form)
+        print("Submitted BookCart", form) 
         # message success
         # messages.success(request, "Successfully Added to BookCart")
 

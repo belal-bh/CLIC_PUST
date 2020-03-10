@@ -6,12 +6,12 @@ from wishlist.models import (
     ResourceCart
 )
 
-class BookForm(forms.ModelForm):
+class BookCartForm(forms.ModelForm):
     class Meta:
         model = BookCart
         fields = []
 
-class ResourceForm(forms.ModelForm):
+class ResourceCartForm(forms.ModelForm):
     class Meta:
         model = ResourceCart
         fields = []

@@ -13,7 +13,7 @@ class TrxBookManager(models.Manager):
 
 class TrxResourceManager(models.Manager):
     def get_queryset(self, *args, **kwargs):
-        return super(TrxResourceManager, self).get_queryset().filter(status="open")
+        return super(TrxResourceManager, self).get_queryset() #.filter(status="open")
 
 
 class TrxBook(models.Model):

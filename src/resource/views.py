@@ -28,7 +28,7 @@ def book_list(request):
     queryset_list = Book.objects.all()
 
     query = request.GET.get("q")
-    by = request.GET.get("by")
+    by = request.GET.get("by")   
 
     if query:
         if by == 'title':

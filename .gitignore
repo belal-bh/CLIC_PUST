@@ -12,6 +12,7 @@ static_cdn/*
 src/account/draft/*
 # src/static/*
 template/*
+src/core/dev/data/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

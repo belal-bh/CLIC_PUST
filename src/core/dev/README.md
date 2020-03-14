@@ -10,3 +10,8 @@ Time needed= 0.5756085991859436
 Removed duplicate=72
 Remain= 6940
 Image found= 6939
+
+
+##########################
+LAUNCE
+status = {'new_author_created': 3650, 'new_book_created': 6440, 'succeed': 500, 'failed': 0, 'total_book': 6940}

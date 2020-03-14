@@ -33,6 +33,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('lib/', include("core.lib.urls", namespace='lib')),
 
+    path('dev/', include('core.dev.urls', namespace='dev')),
+
     path('about/', include("core.coreurls", namespace='about')),
 
     path('account/', include("account.urls", namespace='account')),

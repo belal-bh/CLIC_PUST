@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+
+{% block head_title %}
+{{ title }} | {{ block.super }}
+{% endblock head_title %}
+
+{% block content %}
+<div class='container'>
+    
+    {% if messages %}
+    <div>
+        <ul class="messages">
+        {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    <div>
+        <h2 class="text-danger">This is a SECURE AUTOMATION section... Please Be Carefull</h2>
+        <hr>
+    </div>
+    <div class="row flex-row">
+        <div class="col-xl-12 os-animation" data-os-animation="fadeInUp">
+            <!-- Begin Widget 06 -->
+            <div class="widget widget-06 has-shadow">
+                <form method='POST' id="automate_book_creation" action='' enctype='multipart/form-data'>{% csrf_token %}
+                    {{ form|crispy }}
+                    <!-- Begin Widget Header -->
+                    <div class="widget-header bordered d-flex align-items-center">
+                        <h2>Automate Book Creation</h2>
+                    </div>
+                    <!-- End Widget Header -->
+                    <!-- Begin Widget Body -->
+                    <div class="widget-body p-0">
+                        <div class="mx-3 px-3">
+                            <p>Automatically Book will be created according to data was setup!!</p>
+                            <p>If you want to automate then submit</p>
+                        </div>
+                    </div>
+                    <!-- End Widget Body -->
+                    <div class="media">
+                        <div class="media-left pl-3 align-self-center">
+                            <button name="automate" for="automate_book_creation" class="btn-danger">Submit</button>
+                        </div>
+                        <br>
+                        <br>
+                    </div>
+                </form>
+            </div>
+            <!-- End Widget 06 -->
+        </div>
+    </div>
+</div>
+{% endblock content %} 

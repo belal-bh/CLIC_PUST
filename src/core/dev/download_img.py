@@ -170,12 +170,12 @@ def get_cleaned_data(books, filedir, download=False):
     return clean_books
 
 
-books = load_csv(size=100, all=True)
-clean_books = get_cleaned_data(books, filedir='cleaned_all')
+books = load_csv(size=10, all=True)
+clean_books = get_cleaned_data(books, filedir='test')
 print('book=', books[0]) 
 print('clean Book=', clean_books[0])
 
-if True:
+if False:
     FILE_NAME = 'data\\cleaned\\clean_books.csv'
     clean_df = pd.DataFrame(clean_books, columns=['isbn','title','author','year_of_pub','publisher','url', 'image'])
     clean_df.to_csv(FILE_NAME, index=False) #, index_label="ID", sep=','

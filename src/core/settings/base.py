@@ -91,6 +91,7 @@ TEMPLATES = [
                  os.path.join(BASE_DIR, 'templates/base_segments'),
                  os.path.join(BASE_DIR, 'templates/core'),
                  os.path.join(BASE_DIR, 'templates/lib'),
+                 os.path.join(BASE_DIR, 'templates/dev'),
                  ],
         'APP_DIRS': True,
         'OPTIONS': {

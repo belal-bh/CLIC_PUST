@@ -8,8 +8,10 @@ from resource.models import (
 )
 
 class TrxBookManager(models.Manager):
-    def get_queryset(self, *args, **kwargs):
-        return super(TrxBookManager, self).get_queryset().filter(status="open")
+    # def get_queryset(self, *args, **kwargs):
+    #     return super(TrxBookManager, self).get_queryset().filter(status="open")
+    def all(self, *args, **kwargs):
+        return super(TrxBookManager, self)
 
 class TrxResourceManager(models.Manager):
     def get_queryset(self, *args, **kwargs):

@@ -6,10 +6,25 @@ from django.urls import reverse
 from account.helpers import UploadTo
 from academic.models import Department
 
+class AuthorManager(models.Manager):
+    def available(self, *args, **kwargs):
+        return super(AuthorManager, self).all()
+
+class BookManager(models.Manager):
+    def available(self, *args, **kwargs):
+        status_available = 'available'
+        return super(BookManager, self).filter(status=status_available)
+
+class ResourceManager(models.Manager):
+    def available(self, *args, **kwargs):
+        status_available = 'available'
+        return super(ResourceManager, self).filter(status=status_available)
+
+
 
 class Author(models.Model):
-    name = models.CharField(max_length=40)
-    nicname = models.CharField(max_length=20)
+    name = models.CharField(max_length=100)
+    nicname = models.CharField(max_length=30)
 
     MALE = 'm'
     FEMALE = 'f'
@@ -26,7 +41,7 @@ class Author(models.Model):
     )
     nationality = models.CharField(max_length=20, null=True, blank=True)
     bio = models.TextField(null=True, blank=True)
-    weblinks = ArrayField(models.CharField(max_length=120), blank=True)
+    weblinks = ArrayField(models.CharField(max_length=120),null=True, blank=True)
     email = models.EmailField(
         verbose_name='email address',
         max_length=255,
@@ -36,6 +51,8 @@ class Author(models.Model):
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
 
+    objects = AuthorManager()
+
     def __str__(self):
         if self.name:
             return self.name
@@ -43,17 +60,6 @@ class Author(models.Model):
 
     class Meta:
         ordering = ["name", "nicname"]
-
-class BookManager(models.Manager):
-    def available(self, *args, **kwargs):
-        status_available = 'available'
-        return super(BookManager, self).filter(status=status_available)
-
-class ResourceManager(models.Manager):
-    def available(self, *args, **kwargs):
-        status_available = 'available'
-        return super(ResourceManager, self).filter(status=status_available)
-
 
 
 class Book(models.Model):
@@ -85,7 +91,7 @@ class Book(models.Model):
     height_field = models.IntegerField(default=0, null=True)
     width_field = models.IntegerField(default=0, null=True)
     departments = models.ManyToManyField(Department)
-    tags = ArrayField(models.CharField(max_length=50), blank=True)
+    tags = ArrayField(models.CharField(max_length=50), null=True, blank=True)
     added_by = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, blank=True)
     work_done = models.PositiveIntegerField(default=0)

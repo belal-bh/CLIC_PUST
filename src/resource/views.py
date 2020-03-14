@@ -53,7 +53,7 @@ def book_list(request):
                 Q(isbn__icontains=query)
             ).distinct()
 
-    paginator = Paginator(queryset_list, 2)  # Show 25 contacts per page
+    paginator = Paginator(queryset_list, 10)  # Show 25 contacts per page
     page_request_var = "page"
     page = request.GET.get(page_request_var)
     try:

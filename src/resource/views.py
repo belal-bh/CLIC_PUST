@@ -6,6 +6,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
+from django.contrib.auth.decorators import login_required
+
 from .models import (
     Book,
     Resource,
@@ -22,7 +24,7 @@ from .forms import (
     ResourceCartForm
 )
 
-
+@login_required
 def book_list(request):
     today = timezone.now().date()
     queryset_list = Book.objects.all()
@@ -52,6 +54,8 @@ def book_list(request):
             queryset_list = queryset_list.filter(
                 Q(isbn__icontains=query)
             ).distinct()
+    
+    total_found = len(queryset_list)
 
     paginator = Paginator(queryset_list, 10)  # Show 25 contacts per page
     page_request_var = "page"
@@ -67,6 +71,7 @@ def book_list(request):
 
     context = {
         "object_list": queryset,
+        'total_found': total_found,
         "title": "Books",
         "page_request_var": page_request_var,
         "today": today,
@@ -75,6 +80,7 @@ def book_list(request):
     return render(request, "book_list.html", context)
 
 
+@login_required
 def book_detail(request, id):
     instance = get_object_or_404(Book, id=id)
     cart_added =  BookCart.objects.all().filter(book=instance, user=request.user).first()
@@ -99,7 +105,7 @@ def book_detail(request, id):
 
 
 
-
+@login_required
 def resource_list(request):
     today = timezone.now().date()
     queryset_list = Resource.objects.all()
@@ -147,13 +153,13 @@ def resource_list(request):
     # print(context)
     return render(request, "resource_list.html", context)
 
-
+@login_required
 def resource_detail(request, id):
     instance = get_object_or_404(Resource, id=id)
 
     cart_added =  ResourceCart.objects.all().filter(resource=instance, user=request.user).first()
 
-    form = ResourceForm(request.POST or None, request.FILES or None)
+    form = ResourceCartForm(request.POST or None, request.FILES or None)
     if form.is_valid() and not cart_added:
         cart_instance = form.save(commit=False)
         cart_instance.resource = instance
@@ -169,10 +175,10 @@ def resource_detail(request, id):
     }
     return render(request, "resource_detail.html", context)
 
-
+@login_required
 def resource_doclist(request):
     return render(request, "under_constraction.html", {})
 
-
+@login_required
 def resource_newspaperlist(request):
     return render(request, "under_constraction.html", {})
